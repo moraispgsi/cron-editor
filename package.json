@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/liudongrong/cron-editor.git"
+    "url": "git+https://github.com/fasterize/cron-editor.git"
   },
   "keywords": [
     "cron",
@@ -21,9 +21,9 @@
   "author": "Ladtor",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/liudongrong/cron-editor/issues"
+    "url": "https://github.com/fasterize/cron-editor/issues"
   },
-  "homepage": "https://github.com/liudongrong/cron-editor#readme",
+  "homepage": "https://github.com/fasterize/cron-editor#readme",
   "dependencies": {
     "antd": "3.11.6",
     "babel-plugin-import": "1.11.0",
