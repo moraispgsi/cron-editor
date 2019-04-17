@@ -1,12 +1,12 @@
-import React from 'react';
-import InputNumber from './InputNumber';
+import React from "react";
+import InputNumber from "./InputNumber";
 
 const inputNumberStyle = {
-  margin: '0 5px',
+  margin: "0 5px"
 };
 
 const WeekDay = ({ value, onChange }) => {
-  const splits = value.split('#');
+  const splits = value.split("#");
   const week = splits[0];
   const weekDay = splits[1];
 
@@ -15,17 +15,17 @@ const WeekDay = ({ value, onChange }) => {
     onChange && onChange(s);
   };
 
-  const handleWeekChange = (v) => {
+  const handleWeekChange = v => {
     notifyChange(v, weekDay);
   };
 
-  const handleWeekDayChange = (v) => {
+  const handleWeekDayChange = v => {
     notifyChange(week, v);
   };
 
   return (
     <span>
-      第
+      First
       <InputNumber
         min={1}
         max={4}
@@ -33,7 +33,7 @@ const WeekDay = ({ value, onChange }) => {
         value={week}
         onChange={handleWeekChange}
       />
-      周的星期
+      Week of the week
       <InputNumber
         min={1}
         max={7}
