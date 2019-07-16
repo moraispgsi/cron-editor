@@ -51,7 +51,6 @@ class MonthEditor extends BaseEditor {
             translate={translate}
             front={translate('every')}
             back={translate('months')}
-            fromMax={12}
             everyMax={12}
             onChange={this.handleValueChange.bind(this, index.FROM_EVERY)}
             value={value[index.FROM_EVERY]}

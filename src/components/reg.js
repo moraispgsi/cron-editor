@@ -3,7 +3,7 @@ import React from 'react';
 const EVERY = /^\*$/;
 const ANY = /^\?$/;
 const BETWEEN = /^\d+-\d+$/;
-const FROM_EVERY = /^\d+\/\d+$/;
+const FROM_EVERY = /^[*]+\/\d+$/;
 const CHECK_BOX = /^(\*|((\d+,)*\d+))$/;
 const LAST_WORK_DAY = /^\d+W$/;
 const LAST_MONTH_DAY = /^L$/;

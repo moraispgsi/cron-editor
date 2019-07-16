@@ -118,7 +118,7 @@ class CronEditor extends React.Component {
     } = this.props;
     const { cron } = this.state;
     return (
-      <Tabs defaultActiveKey="second" style={style}>
+      <Tabs defaultActiveKey="minute" style={style}>
         <TabPane tab={this.translate('minute')} key="minute">
           <MinuteEditor
             translate={this.translate}
