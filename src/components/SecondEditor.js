@@ -35,7 +35,7 @@ class SecondEditor extends BaseEditor {
           {translate('per_second')}
         </Radio>
         <Radio style={radioStyle} value={index.BETWEEN}>
-          {translate('cycle_lowercase')}
+          {translate('cycle')}
           <Between
             translate={translate}
             max={59}

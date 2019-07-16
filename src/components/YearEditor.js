@@ -34,7 +34,7 @@ class YearEditor extends BaseEditor {
           {translate('per_year')}
         </Radio>
         <Radio style={radioStyle} value={index.BETWEEN}>
-          {translate('cycle_lowercase')}{" "}
+          {translate('cycle')}{" "}
           <Between
             translate={translate}
             min={MIN_YEAR}

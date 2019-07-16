@@ -36,13 +36,13 @@ class WeekEditor extends BaseEditor {
           onChange={this.handleRegChange}
         />
         <Radio style={radioStyle} value={index.EVERY}>
-          {translate('weekly_lowercase')}
+          {translate('weekly')}
         </Radio>
         <Radio style={radioStyle} value={index.ANY}>
           {translate('not_specified')}
         </Radio>
         <Radio style={radioStyle} value={index.BETWEEN}>
-          {translate('cycle_lowercase')}{" "}
+          {translate('cycle')}{" "}
           <Between
             translate={translate}
             min={1}

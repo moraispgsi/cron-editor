@@ -36,7 +36,7 @@ class HourEditor extends BaseEditor {
           {translate('every_time')}
         </Radio>
         <Radio style={radioStyle} value={index.BETWEEN}>
-          {translate('cycle_lowercase')}{" "}
+          {translate('cycle')}{" "}
           <Between
             translate={translate}
             max={23}

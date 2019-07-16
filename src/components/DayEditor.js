@@ -37,13 +37,13 @@ class DayEditor extends BaseEditor {
           onChange={this.handleRegChange}
         />
         <Radio style={radioStyle} value={index.EVERY}>
-          {translate('dayly_lowercase')}
+          {translate('daily')}
         </Radio>
         <Radio style={radioStyle} value={index.ANY}>
           {translate('not_specified')}
         </Radio>
         <Radio style={radioStyle} value={index.BETWEEN}>
-          {translate('cycle_lowercase')}{" "}
+          {translate('cycle')}{" "}
           <Between
             translate={translate}
             min={1}
@@ -65,7 +65,7 @@ class DayEditor extends BaseEditor {
           />
         </Radio>
         <Radio style={radioStyle} value={index.LAST_WORK_DAY}>
-          {translate('per_month_lowercase')}{" "}
+          {translate('per_month')}{" "}
           <LastWorkDay
             translate={translate}
             value={value[index.LAST_WORK_DAY]}

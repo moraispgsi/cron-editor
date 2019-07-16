@@ -33,10 +33,10 @@ class MonthEditor extends BaseEditor {
           onChange={this.handleRegChange}
         />
         <Radio style={radioStyle} value={index.EVERY}>
-          {translate('per_month_lowercase')}
+          {translate('per_month')}
         </Radio>
         <Radio style={radioStyle} value={index.BETWEEN}>
-          {translate('cycle_lowercase')}{" "}
+          {translate('cycle')}{" "}
           <Between
             translate={translate}
             min={1}
