@@ -5,7 +5,7 @@ const inputNumberStyle = {
   margin: "0 5px"
 };
 
-const WeekDay = ({ value, onChange }) => {
+const WeekDay = ({ value, onChange, translate }) => {
   const splits = value.split("#");
   const week = splits[0];
   const weekDay = splits[1];
@@ -25,7 +25,7 @@ const WeekDay = ({ value, onChange }) => {
 
   return (
     <span>
-      First
+      {translate('first')}
       <InputNumber
         min={1}
         max={4}
@@ -33,7 +33,7 @@ const WeekDay = ({ value, onChange }) => {
         value={week}
         onChange={handleWeekChange}
       />
-      Week of the week
+      {translate('day_of_the_week')}
       <InputNumber
         min={1}
         max={7}

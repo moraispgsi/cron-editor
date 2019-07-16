@@ -19,22 +19,24 @@ class YearEditor extends BaseEditor {
   };
 
   render() {
-    const { radioStyle, value: defaultValue, ...config } = this.props;
+    const { radioStyle, value: defaultValue, translate, ...config } = this.props;
     const { radio, value } = this.state;
 
     return (
       <RadioGroup onChange={this.handleRadioChange} value={radio}>
         <Reg
+          translate={translate}
           value={defaultValue}
           currentIndex={radio}
           onChange={this.handleRegChange}
         />
         <Radio style={radioStyle} value={index.EVERY}>
-          Per year
+          {translate('per_year')}
         </Radio>
         <Radio style={radioStyle} value={index.BETWEEN}>
-          cycle{" "}
+          {translate('cycle_lowercase')}{" "}
           <Between
+            translate={translate}
             min={MIN_YEAR}
             max={MAX_YEAR}
             value={value[index.BETWEEN]}

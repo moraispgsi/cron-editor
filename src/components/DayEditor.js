@@ -25,25 +25,27 @@ class DayEditor extends BaseEditor {
   };
 
   render() {
-    const { radioStyle, value: defaultValue, ...config } = this.props;
+    const { radioStyle, value: defaultValue, translate, ...config } = this.props;
     const { radio, value } = this.state;
 
     return (
       <RadioGroup onChange={this.handleRadioChange} value={radio}>
         <Reg
+          translate={translate}
           value={defaultValue}
           currentIndex={radio}
           onChange={this.handleRegChange}
         />
         <Radio style={radioStyle} value={index.EVERY}>
-          daily
+          {translate('dayly_lowercase')}
         </Radio>
         <Radio style={radioStyle} value={index.ANY}>
-          Not specify
+          {translate('not_specified')}
         </Radio>
         <Radio style={radioStyle} value={index.BETWEEN}>
-          cycle{" "}
+          {translate('cycle_lowercase')}{" "}
           <Between
+            translate={translate}
             min={1}
             max={31}
             value={value[index.BETWEEN]}
@@ -53,29 +55,32 @@ class DayEditor extends BaseEditor {
         </Radio>
         <Radio style={radioStyle} value={index.FROM_EVERY}>
           <FromEvery
-            front="From"
-            middle="Starting day, every day"
-            back="Execute once a day"
+            translate={translate}
+            front={translate('from')}
+            middle={translate('starting_day_every_day')}
+            back={translate('execute_once_a_day')}
             onChange={this.handleValueChange.bind(this, index.FROM_EVERY)}
             value={value[index.FROM_EVERY]}
             {...config}
           />
         </Radio>
         <Radio style={radioStyle} value={index.LAST_WORK_DAY}>
-          per month{" "}
+          {translate('per_month_lowercase')}{" "}
           <LastWorkDay
+            translate={translate}
             value={value[index.LAST_WORK_DAY]}
             {...config}
             onChange={this.handleValueChange.bind(this, index.LAST_WORK_DAY)}
           />{" "}
-          The closest working day
+          {translate('the_closest_working_day')}
         </Radio>
         <Radio style={radioStyle} value={index.LAST_MONTH_DAY}>
-          The last day of the month
+          {translate('the_last_day_of_the_month')}
         </Radio>
         <Radio style={radioStyle} value={index.CHECK_BOX}>
-          Specified
+          {translate('specified')}
           <CheckBoxEditor
+            translate={translate}
             min={1}
             max={31}
             value={value[index.CHECK_BOX]}

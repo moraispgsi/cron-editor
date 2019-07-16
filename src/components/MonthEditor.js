@@ -21,22 +21,24 @@ class MonthEditor extends BaseEditor {
   };
 
   render() {
-    const { radioStyle, value: defaultValue, ...config } = this.props;
+    const { radioStyle, value: defaultValue, translate, ...config } = this.props;
     const { radio, value } = this.state;
 
     return (
       <RadioGroup onChange={this.handleRadioChange} value={radio}>
         <Reg
+          translate={translate}
           value={defaultValue}
           currentIndex={radio}
           onChange={this.handleRegChange}
         />
         <Radio style={radioStyle} value={index.EVERY}>
-          per month
+          {translate('per_month_lowercase')}
         </Radio>
         <Radio style={radioStyle} value={index.BETWEEN}>
-          cycle{" "}
+          {translate('cycle_lowercase')}{" "}
           <Between
+            translate={translate}
             min={1}
             max={12}
             value={value[index.BETWEEN]}
@@ -46,9 +48,10 @@ class MonthEditor extends BaseEditor {
         </Radio>
         <Radio style={radioStyle} value={index.FROM_EVERY}>
           <FromEvery
-            front="From"
-            middle="Beginning of the month, every month"
-            back="Execute once a month"
+            translate={translate}
+            front={translate('from')}
+            middle={translate('beginning_month_every_month')}
+            back={translate('execute_once_a_month')}
             fromMax={12}
             everyMax={12}
             onChange={this.handleValueChange.bind(this, index.FROM_EVERY)}
@@ -57,8 +60,9 @@ class MonthEditor extends BaseEditor {
           />
         </Radio>
         <Radio style={radioStyle} value={index.CHECK_BOX}>
-          Specified
+          {translate('specified')}
           <CheckBoxEditor
+            translate={translate}
             min={1}
             max={12}
             value={value[index.CHECK_BOX]}

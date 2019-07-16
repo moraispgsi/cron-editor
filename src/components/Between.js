@@ -5,7 +5,7 @@ import InputNumber from './InputNumber';
 const style = { width: 70, textAlign: 'center', paddingRight: '0px', paddingLeft: '0px' };
 const InputGroup = Input.Group;
 
-const Between = ({ value, onChange, min = 0, max }) => {
+const Between = ({ value, onChange, min = 0, max, translate }) => {
   const splits = value.split('-');
   const minValue = parseInt(splits[0], 0);
   const maxValue = parseInt(splits[1], 0);
@@ -27,7 +27,7 @@ const Between = ({ value, onChange, min = 0, max }) => {
     <InputGroup compact style={{ display: 'inline-block', verticalAlign: 'middle', marginLeft: '5px' }}>
       <InputNumber
         style={style}
-        placeholder="Minimum"
+        placeholder={translate('minimum')}
         min={min}
         max={maxValue}
         value={minValue}
@@ -40,7 +40,7 @@ const Between = ({ value, onChange, min = 0, max }) => {
       />
       <InputNumber
         style={{...style, borderLeft: 0}}
-        placeholder="Maximum"
+        placeholder={translate('maximum')}
         min={minValue}
         max={max}
         value={maxValue}

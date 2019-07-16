@@ -24,25 +24,27 @@ class WeekEditor extends BaseEditor {
   };
 
   render() {
-    const { radioStyle, value: defaultValue, ...config } = this.props;
+    const { radioStyle, value: defaultValue, translate, ...config } = this.props;
     const { radio, value } = this.state;
 
     return (
       <RadioGroup onChange={this.handleRadioChange} value={radio}>
         <Reg
+          translate={translate}
           value={defaultValue}
           currentIndex={radio}
           onChange={this.handleRegChange}
         />
         <Radio style={radioStyle} value={index.EVERY}>
-          weekly
+          {translate('weekly_lowercase')}
         </Radio>
         <Radio style={radioStyle} value={index.ANY}>
-          Not specify
+          {translate('not_specified')}
         </Radio>
         <Radio style={radioStyle} value={index.BETWEEN}>
-          cycle{" "}
+          {translate('cycle_lowercase')}{" "}
           <Between
+            translate={translate}
             min={1}
             max={7}
             value={value[index.BETWEEN]}
@@ -52,22 +54,25 @@ class WeekEditor extends BaseEditor {
         </Radio>
         <Radio style={radioStyle} value={index.WEEK_DAY}>
           <WeekDay
+            translate={translate}
             onChange={this.handleValueChange.bind(this, index.WEEK_DAY)}
             value={value[index.WEEK_DAY]}
             {...config}
           />
         </Radio>
         <Radio style={radioStyle} value={index.LAST_WEEK_DAY}>
-          Last week of the month{" "}
+          {translate('last_week_of_the_month')}{" "}
           <LastWeekDay
+            translate={translate}
             value={value[index.LAST_WEEK_DAY]}
             {...config}
             onChange={this.handleValueChange.bind(this, index.LAST_WEEK_DAY)}
           />
         </Radio>
         <Radio style={radioStyle} value={index.CHECK_BOX}>
-          Specified
+          {translate('specified')}
           <CheckBoxEditor
+            translate={translate}
             min={1}
             max={7}
             value={value[index.CHECK_BOX]}

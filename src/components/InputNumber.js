@@ -40,11 +40,11 @@ class InputNumber extends React.Component {
   };
 
   render() {
-    const { placeholder = 'number', style } = this.props;
+    const { placeholder, style, translate } = this.props;
     const { value } = this.state;
     return <Input
       style={{ width: '75px', ...style }}
-      placeholder={placeholder}
+      placeholder={placeholder ? placeholder : translate('number')}
       onChange={this.handleChange}
       onPressEnter={this.handleEnter}
       onBlur={this.handleBlur}

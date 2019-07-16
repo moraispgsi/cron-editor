@@ -103,6 +103,14 @@ class CronEditor extends React.Component {
     this.cronChange(value, 6);
   };
 
+  translate = (id) => {
+    const { translate } = this.props;
+    if(!translate) {
+      return id;
+    }
+    return translate(id);
+  };
+
   render() {
     const {
       style = containerStyle,
@@ -121,8 +129,9 @@ class CronEditor extends React.Component {
     const { cron } = this.state;
     return (
       <Tabs defaultActiveKey="second" style={style}>
-        <TabPane tab="second" key="second">
+        <TabPane tab={this.translate('second')} key="second">
           <SecondEditor
+            translate={this.translate}
             onChange={this.secondChange}
             value={cron[0]}
             radioStyle={radioStyle}
@@ -130,8 +139,9 @@ class CronEditor extends React.Component {
             {...second}
           />
         </TabPane>
-        <TabPane tab="minute" key="minute">
+        <TabPane tab={this.translate('minute')} key="minute">
           <MinuteEditor
+            translate={this.translate}
             onChange={this.minuteChange}
             value={cron[1]}
             radioStyle={radioStyle}
@@ -139,8 +149,9 @@ class CronEditor extends React.Component {
             {...minute}
           />
         </TabPane>
-        <TabPane tab="hour" key="hour">
+        <TabPane tab={this.translate('hour')} key="hour">
           <HourEditor
+            translate={this.translate}
             onChange={this.hourChange}
             value={cron[2]}
             radioStyle={radioStyle}
@@ -148,8 +159,9 @@ class CronEditor extends React.Component {
             {...hour}
           />
         </TabPane>
-        <TabPane tab="day" key="day">
+        <TabPane tab={this.translate('day')} key="day">
           <DayEditor
+            translate={this.translate}
             onChange={this.dayChange}
             value={cron[3]}
             radioStyle={radioStyle}
@@ -157,8 +169,9 @@ class CronEditor extends React.Component {
             {...day}
           />
         </TabPane>
-        <TabPane tab="month" key="month">
+        <TabPane tab={this.translate('month')} key="month">
           <MonthEditor
+            translate={this.translate}
             onChange={this.monthChange}
             value={cron[4]}
             radioStyle={radioStyle}
@@ -166,8 +179,9 @@ class CronEditor extends React.Component {
             {...month}
           />
         </TabPane>
-        <TabPane tab="week" key="week">
+        <TabPane tab={this.translate('week')} key="week">
           <WeekEditor
+            translate={this.translate}
             onChange={this.weekChange}
             value={cron[5]}
             radioStyle={radioStyle}
@@ -175,8 +189,9 @@ class CronEditor extends React.Component {
             {...week}
           />
         </TabPane>
-        <TabPane tab="year" key="year">
+        <TabPane tab={this.translate('year')} key="year">
           <YearEditor
+            translate={this.translate}
             onChange={this.yearChange}
             value={cron[6]}
             radioStyle={radioStyle}

@@ -20,22 +20,24 @@ class SecondEditor extends BaseEditor {
   };
 
   render() {
-    const { radioStyle, value: defaultValue, ...config } = this.props;
+    const { radioStyle, value: defaultValue, translate, ...config } = this.props;
     const { radio, value } = this.state;
 
     return (
       <RadioGroup onChange={this.handleRadioChange} value={radio}>
         <Reg
+          translate={translate}
           value={defaultValue}
           currentIndex={radio}
           onChange={this.handleRegChange}
         />
         <Radio style={radioStyle} value={index.EVERY}>
-          Per second
+          {translate('per_second')}
         </Radio>
         <Radio style={radioStyle} value={index.BETWEEN}>
-          cycle
+          {translate('cycle_lowercase')}
           <Between
+            translate={translate}
             max={59}
             {...config}
             value={value[index.BETWEEN]}
@@ -44,17 +46,19 @@ class SecondEditor extends BaseEditor {
         </Radio>
         <Radio style={radioStyle} value={index.FROM_EVERY}>
           <FromEvery
-            front="From"
-            middle="Seconds, every"
-            back="Execute once every second"
+            translate={translate}
+            front={translate('from')}
+            middle={translate('seconds_every')}
+            back={translate('execute_once_every_second')}
             onChange={this.handleValueChange.bind(this, index.FROM_EVERY)}
             value={value[index.FROM_EVERY]}
             {...config}
           />
         </Radio>
         <Radio style={radioStyle} value={index.CHECK_BOX}>
-          Specified
+          {translate('specified')}
           <CheckBoxEditor
+            translate={translate}
             max={59}
             value={value[index.CHECK_BOX]}
             {...config}
