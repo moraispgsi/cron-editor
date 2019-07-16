@@ -20,7 +20,7 @@ const containerStyle = {
 
 class CronEditor extends React.Component {
   state = {
-    cron: ["*", "*", "*", "?", "*", "?"]
+    cron: ["*", "*", "*", "*", "*"]
   };
 
   constructor(props) {
@@ -42,11 +42,6 @@ class CronEditor extends React.Component {
       for (let i = 0; i < cronArr.length; i += 1) {
         cron[i] = cronArr[i];
       }
-      if (cron[3] === "?") {
-        if (cron[5] === "?") cron[5] = "*";
-      } else {
-        cron[5] = "?";
-      }
       isSet ? this.setState({ cron }) : (this.state.cron = cron);
     }
   };
@@ -55,19 +50,6 @@ class CronEditor extends React.Component {
     const { onChange } = this.props;
     const { cron } = this.state;
     cron[index] = value;
-    if (index === 3) {
-      if (value === "?") {
-        if (cron[5] === "?") cron[5] = "*";
-      } else {
-        cron[5] = "?";
-      }
-    } else if (index === 5) {
-      if (value === "?") {
-        if (cron[3] === "?") cron[3] = "*";
-      } else {
-        cron[3] = "?";
-      }
-    }
     this.setState({ cron });
     const cronText = cron.join(" ");
     onChange && onChange(cronText);
