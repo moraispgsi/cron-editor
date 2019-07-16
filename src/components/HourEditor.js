@@ -11,7 +11,7 @@ const RadioGroup = Radio.Group;
 const defaultRadioKeyValue = {};
 defaultRadioKeyValue[index.EVERY] = "*";
 defaultRadioKeyValue[index.BETWEEN] = "0-23";
-defaultRadioKeyValue[index.FROM_EVERY] = "0/1";
+defaultRadioKeyValue[index.FROM_EVERY] = "*/1";
 defaultRadioKeyValue[index.CHECK_BOX] = "*";
 
 class HourEditor extends BaseEditor {
@@ -48,9 +48,8 @@ class HourEditor extends BaseEditor {
         <Radio style={radioStyle} value={index.FROM_EVERY}>
           <FromEvery
             translate={translate}
-            front={translate('from')}
-            middle={translate('hour_starts_every_time')}
-            back={translate('execute_once_every_hour')}
+            front={translate('every')}
+            back={translate('hours')}
             fromMax={23}
             everyMax={23}
             onChange={this.handleValueChange.bind(this, index.FROM_EVERY)}

@@ -11,7 +11,7 @@ const RadioGroup = Radio.Group;
 const defaultRadioKeyValue = {};
 defaultRadioKeyValue[index.EVERY] = "*";
 defaultRadioKeyValue[index.BETWEEN] = "1-2";
-defaultRadioKeyValue[index.FROM_EVERY] = "1/1";
+defaultRadioKeyValue[index.FROM_EVERY] = "*/1";
 defaultRadioKeyValue[index.CHECK_BOX] = "*";
 
 class MonthEditor extends BaseEditor {
@@ -49,9 +49,8 @@ class MonthEditor extends BaseEditor {
         <Radio style={radioStyle} value={index.FROM_EVERY}>
           <FromEvery
             translate={translate}
-            front={translate('from')}
-            middle={translate('beginning_month_every_month')}
-            back={translate('execute_once_a_month')}
+            front={translate('every')}
+            back={translate('months')}
             fromMax={12}
             everyMax={12}
             onChange={this.handleValueChange.bind(this, index.FROM_EVERY)}

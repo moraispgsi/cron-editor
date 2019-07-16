@@ -11,7 +11,7 @@ const RadioGroup = Radio.Group;
 const defaultRadioKeyValue = {};
 defaultRadioKeyValue[index.EVERY] = "*";
 defaultRadioKeyValue[index.BETWEEN] = "0-59";
-defaultRadioKeyValue[index.FROM_EVERY] = "0/1";
+defaultRadioKeyValue[index.FROM_EVERY] = "*/1";
 defaultRadioKeyValue[index.CHECK_BOX] = "*";
 
 class MinuteEditor extends BaseEditor {
@@ -48,9 +48,8 @@ class MinuteEditor extends BaseEditor {
         <Radio style={radioStyle} value={index.FROM_EVERY}>
           <FromEvery
             translate={translate}
-            front={translate('from')}
-            middle={translate('start_every')}
-            back={translate('perform_once')}
+            front={translate('every')}
+            back={translate('minutes')}
             onChange={this.handleValueChange.bind(this, index.FROM_EVERY)}
             value={value[index.FROM_EVERY]}
             {...config}
