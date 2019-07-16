@@ -5,7 +5,7 @@ const inputNumberStyle = {
   margin: '0 5px',
 };
 
-const FromEvery = ({ value, onChange, front, middle, back, fromMin = 0, fromMax = 59, everyMin = 1, everyMax = 59 }) => {
+const FromEvery = ({ value, onChange, front, middle, back, fromMin = 0, fromMax = 59, everyMin = 1, everyMax = 59, translate }) => {
 
   const splits = value.split('/');
   const from = splits[0];
@@ -28,6 +28,7 @@ const FromEvery = ({ value, onChange, front, middle, back, fromMin = 0, fromMax 
     <span>
       {front}
       <InputNumber
+        translate={translate}
         min={fromMin}
         max={fromMax}
         value={from}
@@ -36,6 +37,7 @@ const FromEvery = ({ value, onChange, front, middle, back, fromMin = 0, fromMax 
       />
       {middle}
       <InputNumber
+        translate={translate}
         min={everyMin}
         max={everyMax}
         value={every}

@@ -26,6 +26,7 @@ const Between = ({ value, onChange, min = 0, max, translate }) => {
   return (
     <InputGroup compact style={{ display: 'inline-block', verticalAlign: 'middle', marginLeft: '5px' }}>
       <InputNumber
+        translate={translate}
         style={style}
         placeholder={translate('minimum')}
         min={min}
@@ -39,6 +40,7 @@ const Between = ({ value, onChange, min = 0, max, translate }) => {
         disabled
       />
       <InputNumber
+        translate={translate}
         style={{...style, borderLeft: 0}}
         placeholder={translate('maximum')}
         min={minValue}

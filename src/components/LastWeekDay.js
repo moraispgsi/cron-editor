@@ -1,7 +1,7 @@
 import React from 'react';
 import InputNumber from './InputNumber';
 
-const LastWeekDay = ({ value, onChange }) => {
+const LastWeekDay = ({ value, onChange, translate }) => {
   const splits = value.split('L');
 
   const notifyChange = (v) => {
@@ -15,6 +15,7 @@ const LastWeekDay = ({ value, onChange }) => {
 
   return (
     <InputNumber
+      translate={translate}
       min={1}
       max={7}
       value={splits[0]}
